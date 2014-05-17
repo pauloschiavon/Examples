@@ -1,4 +1,4 @@
 Examples
 ========
 
-Some code examples and personal studies
+Some examples of ruby code and personal studies!
