@@ -6,7 +6,7 @@ class Relatorio
   end
   
   def total
-    @biblioteca.livros.inject(0) { |tot, livro| tot+= livro.valor 
+    @biblioteca.livros.inject(0) { |tot, livro| tot+= livro.valor }
     #@biblioteca.livros.map(&:valor).inject(0) {|tot, valor| tot += valor}
     #@biblioteca.livros.map(&:valor).inject(:+)
   end

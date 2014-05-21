@@ -1,22 +1,26 @@
 # encoding: utf-8
 
-class Biblioteca 
+class Biblioteca
   def initialize
-    @livros = {}
+    @banco_de_arquivos = BancoDeArquivos.new
   end
   
   def adiciona(livro)
-    @livros[livro.categoria] ||= []
-    @livros[livro.categoria] <<  livro
-  end
-  
-  def livros
-    @livros.values.flatten
+    salva livro do
+      @livros << livro
+    end
   end
   
   def livros_por_categoria(categoria)
-    @livros[categoria].each do |livro|
-      yield livro if block_given?
-    end
+    @livros.select { |livro| livro.categoria == categoria }
+  end
+  
+  def livros
+    @livros ||= @banco_de_arquivos.carrega
+  end
+  
+  def salva(livro)
+    @banco_de_dados.salva livro
+    yield
   end
 end
