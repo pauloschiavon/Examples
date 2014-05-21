@@ -13,3 +13,11 @@ biblioteca = Biblioteca.new
 
 puts "test load"
 puts biblioteca.midias
+
+puts ""
+windows = DVD.new "Windows 7 for Dummies", 98.9, :sistemas_operacionais
+p windows.valor_formatado # => R$ 98.9
+p windows.valor_com_desconto_formatado # => R$ 89.01
+
+puts ""
+p windows.methods
