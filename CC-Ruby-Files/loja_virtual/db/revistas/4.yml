@@ -1,0 +1,6 @@
+--- !ruby/object:Revista
+id: 4
+destroyed: false
+new_record: false
+titulo: PEGN
+valor: 12.0

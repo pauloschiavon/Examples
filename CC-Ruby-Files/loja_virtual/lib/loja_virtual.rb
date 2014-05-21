@@ -1,5 +1,6 @@
 # modules
 require File.expand_path("lib/formatador_moeda")
+require File.expand_path("lib/active_file")
 
 # Exceptions
 require File.expand_path("lib/document_not_found")
