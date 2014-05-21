@@ -1,8 +1,9 @@
 # encoding: utf-8
 
-class Livro
-  attr_accessor :valor
-  attr_reader   :titulo, :autor, :isbn, :categoria
+class Livro < Midia
+  attr_reader   :autor, :isbn, :categoria
+  
+  include FormatadorMoeda
   
   def initialize(titulo, autor, isbn = "1", numero_de_paginas, valor, categoria)
     @titulo = titulo
@@ -11,6 +12,8 @@ class Livro
     @numero_de_paginas = numero_de_paginas
     @valor = valor
     @categoria = categoria
+    
+    @desconto = 0.15
   end
   
   # garante a unicidade quando adicionar este objeto a um Set

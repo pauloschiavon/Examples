@@ -12,4 +12,4 @@ biblioteca = Biblioteca.new
 #p relatorio.titulos
 
 puts "test load"
-puts biblioteca.livros
+puts biblioteca.midias

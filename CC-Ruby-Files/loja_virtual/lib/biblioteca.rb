@@ -1,26 +1,39 @@
 # encoding: utf-8
 
 class Biblioteca
+  
+  include Enumerable
+  
   def initialize
     @banco_de_arquivos = BancoDeArquivos.new
   end
   
-  def adiciona(livro)
-    salva livro do
-      @livros << livro
+  def adiciona(midia)
+    salva midia do
+      @midias << midia
     end
   end
   
-  def livros_por_categoria(categoria)
-    @livros.select { |livro| livro.categoria == categoria }
+  def midias_por_categoria(categoria)
+    midias.select do |midia|
+      midia.categoria == categoria if midia.respond_to? :categoria
+    end
   end
   
-  def livros
-    @livros ||= @banco_de_arquivos.carrega
+  def midias
+    @midias ||= @banco_de_arquivos.carrega
   end
   
-  def salva(livro)
-    @banco_de_dados.salva livro
+  # método each que possibilita que os outros métodos do módulo
+  # Enumerable funcioname em uma instancia de biblioteca
+  def each
+    livros.each { |livro| yield livro}
+  end
+  
+  private 
+  
+  def salva(midia)
+    @banco_de_dados.salva midia
     yield
   end
 end
