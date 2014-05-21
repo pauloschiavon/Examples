@@ -108,3 +108,30 @@ puts string_especial
 string_especial = %{Isso é "normal" e {util} no mundo Ruby 
 e a partir de agora veremos a 'todo' momento}
 puts string_especial # com quebra de linha na declaração
+
+puts ""
+palavras = %w{ola mundo}
+p palavras # => ["ola", "mundo"]
+
+nome = "Lucas"
+palavras = %W{ola #{nome}}
+p palavras # ["ola", "Lucas"]
+
+puts ""
+idade = nil
+idade ||= 27
+puts idade # 27
+
+idade ||= 35
+puts idade # 27
+
+puts ""
+require 'set'
+numero_sem_repeticao = Set.new [1, 2, 2, 3, 2, 1]
+
+for numero in numero_sem_repeticao do
+  p numero 
+end
+# => 1
+# => 2
+# => 3
